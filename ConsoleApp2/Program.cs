@@ -12,5 +12,21 @@ namespace ConsoleApp2
         {
             int j = 0;
         }
+
+        private static void test1()
+        {
+            DateTime fecha;
+            object valor = "2018-06-01";
+            try
+            {
+
+                fecha = valor;
+            }
+            catch (InvalidCastException e)
+            {
+                fecha = null;
+            }
+        }
+
     }
 }
