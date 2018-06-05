@@ -10,22 +10,47 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            int j = 0;
+            test1();
+            test2();
+            test3();
+
+            Console.ReadKey();
         }
 
         private static void test1()
         {
-            DateTime fecha;
-            object valor = "2018-06-01";
+            DateTime? fecha;
             try
             {
-
-                fecha = valor;
+                fecha = new DateTime(2018, 20, 40);
             }
             catch (InvalidCastException e)
             {
-                fecha = null;
+                Console.WriteLine("ha fallado");
             }
+        }
+
+        private static void test2()
+        {
+            DateTime? fecha;
+            try
+            {
+                fecha = new DateTime(2018, 20, 40);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("ha fallado");
+            }
+        }
+
+        private static void test3()
+        {
+            string cadena = "2018-20-40";
+            DateTime result;
+            if (DateTime.TryParse(cadena, out result))
+                Console.WriteLine(result);
+            else
+                Console.WriteLine("ha fallado");
         }
 
     }
