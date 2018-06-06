@@ -19,27 +19,40 @@ namespace ConsoleApp2
 
         private static void test1()
         {
+            Console.Clear();
+            Console.WriteLine("test1");
             DateTime? fecha;
+            int year = 2018;
+            int month = 20;
+            int day = 40;
             try
             {
-                fecha = new DateTime(2018, 20, 40);
+                fecha = new DateTime(year, month, day);
             }
-            catch (InvalidCastException e)
+            catch (Exception e)
             {
-                Console.WriteLine("ha fallado");
+                Console.WriteLine(e.ToString());
             }
         }
 
         private static void test2()
         {
+            Console.Clear();
+            Console.WriteLine("test2");
+
             DateTime? fecha;
+            int year = 2018;
+            int month = 20;
+            int day = 40;
             try
             {
-                fecha = new DateTime(2018, 20, 40);
+                fecha = new DateTime(year, month, day);
             }
             catch (ArgumentOutOfRangeException e)
             {
-                Console.WriteLine("ha fallado");
+                string mensaje = String.Format("La fecha {0}-{1}-{2} no es válida", year, month, day);
+                ArgumentOutOfRangeException ex = new ArgumentOutOfRangeException(mensaje, e);                
+                Console.WriteLine(ex.ToString());
             }
         }
 
